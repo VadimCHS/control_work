@@ -3,22 +3,22 @@
 // либо задать на старте выполнения алгоритма. При решении не рекомендуется пользоваться коллекциями, 
 // лучше обойтись исключительно массивами.
 
-string[] sortArrLenghtStr(string[] array, int lenghtStr)
+string[] sortArrLenghtStr(string[] array, int countChar)
 {
-    int countEl = 0;
+    int count = 0;
     string[] result;
-    foreach (string str in array)
+    for (int i = 0; i < array.Length; i++)
     {
-        if (str.Length <= lenghtStr)
+        if (array[i].Length <= countChar)
         {
-            countEl++;
+            count++;
         }
     }
 
-    result = new string[countEl];
+    result = new string[count];
     for (int i = 0, j = 0; i < array.Length; i++)
     {
-        if (array[i].Length <= lenghtStr)
+        if (array[i].Length <= countChar)
         {
             result[j] = array[i];
             j++;
@@ -27,10 +27,10 @@ string[] sortArrLenghtStr(string[] array, int lenghtStr)
     return result;
 }
 
-string[] arrayStr = { "Hello", " ", "world", ":-)", "1234", "Set", "-2" };
-int quantityChar = 3;
+string[] array = { "Hello", " ", "world", ":-)", "1234", "Set", "-2" };
+int countChar = 3;
 
-string[] newArrStr = sortArrLenghtStr(arrayStr, quantityChar);
-Console.Write($"[{string.Join(", ", arrayStr)}] -> ");
-Console.Write($"[{string.Join(", ", newArrStr)}]");
+string[] newArr = sortArrLenghtStr(array, countChar);
+Console.Write($"[{string.Join(", ", array)}] -> ");
+Console.Write($"[{string.Join(", ", newArr)}]");
 
